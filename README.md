@@ -4,7 +4,9 @@ This project was built for the Prove MLE coding challenge. The program is ran on
 
 ## Performance Report
 
-The model is a neural network that takes as input an array of keystroke input time. It then outputs a prediction of the user that made the input keystrokes from 35 valid users. The performance of the model is ~57% acccuracy of a testing set derived from the training set. However, it is always able to detect invalid inputs.
+The model is a neural network that takes as input an array of keystroke input time. It then outputs a prediction of the user that made the input keystrokes from 35 valid users. The performance of the model is ~57% acccuracy of a testing set derived from the training set. However, it is always able to detect invalid inputs. Seen below is a graph of distribution of the model's prediction over the given test set.
+
+![Distribution Graph](Figure_1.png)
 
 ## Additional Questions
 

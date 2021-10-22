@@ -6,6 +6,8 @@ import datetime
 import tensorflow as tf
 from tensorflow import keras
 
+import matplotlib.pyplot as plt
+
 labels = ["4a438fdede4e11e9b986acde48001122",
         "4a45245cde4e11e9b51bacde48001122",
         "4a4558dcde4e11e9bbfaacde48001122",
@@ -66,9 +68,16 @@ for i in range(len(test_data["attempts"])):
         test_list.append(["Invalid"])
 
 output = []
+count = {}
+for i in range(len(labels)):
+    count[str(i)] = 0
 for e in test_list:
     if e[0] == "Invalid":
         output.append("Invalid Input")
+        if "Invalid" not in count:
+            count["Invalid"] = 1
+        else:
+            count["Invalid"] = count["Invalid"] + 1
     else:
         if len(e) != 41:
             for i in range(41 - len(e)):
@@ -76,6 +85,12 @@ for e in test_list:
         e = [e]
         test_df = np.array(e).astype("float32")
         user_class = np.argmax(model.predict(test_df), axis = -1)
+        count[str(user_class[0])] = count[str(user_class[0])] + 1
         output.append(labels[user_class[0]])
 
-print(output)
+# print(output)
+
+plt.bar(range(len(count)), list(count.values()), align='center')
+plt.xticks(range(len(count)), list(count.keys()))
+
+plt.show()
