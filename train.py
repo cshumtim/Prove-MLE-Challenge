@@ -2,6 +2,7 @@ import urllib.request, json
 import numpy as np
 import pandas as pd
 import datetime
+import sys
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -57,10 +58,20 @@ while nxt:
     else:
         filename = data["next"]
 
+valid_file = open("valid_users.txt", "w")
+for v in valid_users:
+    valid_file.write(v + "\n")
+valid_file.close()
+
+invalid_file = open("invalid_users.txt", "w")
+for i in invalid_users:
+    invalid_file.write(i + "\n")
+invalid_file.close()
+
 train_df = pd.DataFrame(data_list)
 train_df = np.array(train_df.fillna(value = 0))
 
-x = train_df[:,1:].astype('float32')
+x = train_df[:,1:].astype("float32")
 y = train_df[:,0]
 
 # One-hot encode the data
