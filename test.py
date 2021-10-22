@@ -94,3 +94,8 @@ plt.bar(range(len(count)), list(count.values()), align='center')
 plt.xticks(range(len(count)), list(count.keys()))
 
 plt.show()
+
+plt2.bar(range(2), [35, 5], align='center')
+plt2.xticks(range(2), ["Valid", "Invalid"])
+
+plt2.show()

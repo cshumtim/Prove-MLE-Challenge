@@ -8,7 +8,9 @@ The model is a neural network that takes as input an array of keystroke input ti
 
 ![Distribution Graph](Figure_1.png)
 
-As can be seen, the model predicts that most input from the test set is an invalid input, where the combination of the keystrokes and backspaces don't equate to the sentence "**Be Authentic. Be Yourself. Be Typing.**"
+As can be seen, the model predicts that most input from the test set is an invalid input, where the combination of the keystrokes and backspaces don't equate to the sentence "**Be Authentic. Be Yourself. Be Typing.**". From the training set, users are qualified as valid data for training the model if the have 300 or more valid recorded string inputs. with these criteria, it can be seen in the graph below that there are 35 valid users and 5 invalid users. That means that 87.5% of the training set is valid.
+
+![Valid and Invalid users](Figure_2.png)
 
 ## Additional Questions
 
